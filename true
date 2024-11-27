@@ -1,0 +1,53 @@
+components/Skills.tsx"
+import { FlaskRoundIcon as Flask, Code, PenToolIcon as Tool, Users } from 'lucide-react'
+
+const skills = [
+  {
+    category: "Research Skills",
+    icon: <Flask className="w-6 h-6 text-blue-600" />,
+    items: ["Quantum Algorithm Design", "Machine Learning", "Data Analysis", "Bioinformatics"]
+  },
+  {
+    category: "Programming Languages",
+    icon: <Code className="w-6 h-6 text-green-600" />,
+    items: ["Python", "R", "C++", "MATLAB"]
+  },
+  {
+    category: "Tools & Technologies",
+    icon: <Tool className="w-6 h-6 text-red-600" />,
+    items: ["TensorFlow", "PyTorch", "Qiskit", "Git"]
+  },
+  {
+    category: "Soft Skills",
+    icon: <Users className="w-6 h-6 text-purple-600" />,
+    items: ["Scientific Writing", "Oral Presentations", "Project Management", "Collaboration"]
+  }
+]
+
+export default function Skills() {
+  return (
+    <section id="skills" className="section-padding">
+      <div className="container">
+        <h2 className="section-title">Skills & Expertise</h2>
+        <div className="grid md:grid-cols-2 gap-6">
+          {skills.map((skillCategory, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <div className="flex items-center mb-3">
+                {skillCategory.icon}
+                <h3 className="text-lg font-semibold ml-2 text-gray-800">{skillCategory.category}</h3>
+              </div>
+              <div className="flex flex-wrap">
+                {skillCategory.items.map((skill, i) => (
+                  <span key={i} className="bg-gray-200 text-gray-800 px-2 py-1 rounded-full text-xs mr-2 mb-2 transition-transform hover:scale-105">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
